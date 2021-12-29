@@ -64,7 +64,7 @@ function processRequest(req, res) {
         return writeResponse(res, 204);
     }
 
-    var result = config.fetch_regex.exec(req.url);
+    var result = config.fetch_regex.exec(encodeURI(req.url));
 
     if (result && result.length == 2 && result[1]) {
         var remoteURL;
